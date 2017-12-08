@@ -12,6 +12,14 @@ import javax.persistence.OneToOne;
 @Entity
 public class Ingredient {
 
+	public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+		super();
+		this.description = description;
+		this.amount = amount;
+		this.uom = uom;
+		this.recipe = recipe;
+	}
+
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
@@ -19,7 +27,7 @@ public class Ingredient {
 	private BigDecimal amount;
 
 	@OneToOne(fetch = FetchType.EAGER)
-	private UnitofMeasure uom;
+	private UnitOfMeasure uom;
 
 	@ManyToOne
 	private Recipe recipe;

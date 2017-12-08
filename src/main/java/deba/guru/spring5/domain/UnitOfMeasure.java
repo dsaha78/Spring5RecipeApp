@@ -5,12 +5,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
-public class UnitofMeasure {
+public class UnitOfMeasure {
 
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
-	private String uom;
+	private String description;
 
 	public Long getId() {
 		return Id;
@@ -21,11 +21,11 @@ public class UnitofMeasure {
 	}
 
 	public String getUom() {
-		return uom;
+		return description;
 	}
 
 	public void setUom(String uom) {
-		this.uom = uom;
+		this.description = uom;
 	}
 
 }
