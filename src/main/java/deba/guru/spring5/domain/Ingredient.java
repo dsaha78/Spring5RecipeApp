@@ -9,16 +9,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class Ingredient {
-
-	public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
-		super();
-		this.description = description;
-		this.amount = amount;
-		this.uom = uom;
-		this.recipe = recipe;
-	}
 
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,36 +27,18 @@ public class Ingredient {
 	@ManyToOne
 	private Recipe recipe;
 
-	public Long getId() {
-		return Id;
-	}
-
-	public void setId(Long id) {
-		Id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
+	public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom, Recipe recipe) {
+		super();
 		this.description = description;
-	}
-
-	public BigDecimal getAmount() {
-		return amount;
-	}
-
-	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
-	}
-
-	public Recipe getRecipe() {
-		return recipe;
-	}
-
-	public void setRecipe(Recipe recipe) {
+		this.uom = uom;
 		this.recipe = recipe;
 	}
 
+	public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom) {
+		super();
+		this.description = description;
+		this.amount = amount;
+		this.uom = uom;
+	}
 }
