@@ -9,7 +9,7 @@ import deba.guru.spring5.domain.UnitOfMeasure;
 import lombok.Synchronized;
 
 @Component
-public class UnitOfMeasuretoUnitOfMeasureCommand implements Converter<UnitOfMeasure, UnitOfMeasureCommand> {
+public class UnitOfMeasureToUnitOfMeasureCommand implements Converter<UnitOfMeasure, UnitOfMeasureCommand> {
 
 	@Synchronized
 	@Nullable

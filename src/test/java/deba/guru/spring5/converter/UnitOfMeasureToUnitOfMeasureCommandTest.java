@@ -8,16 +8,16 @@ import org.junit.Test;
 import deba.guru.spring5.command.UnitOfMeasureCommand;
 import deba.guru.spring5.domain.UnitOfMeasure;
 
-public class UnitOfMeasuretoUnitOfMeasureCommandTest {
+public class UnitOfMeasureToUnitOfMeasureCommandTest {
 
-	public static final Long id = 1L;
-	public static final String description = "DESCIPTION";
+	private static final Long ID = 1L;
+	private static final String DESCRIPTION = "DESCIPTION";
 
-	UnitOfMeasuretoUnitOfMeasureCommand converter;
+	private UnitOfMeasureToUnitOfMeasureCommand converter;
 
 	@Before
 	public void setUp() throws Exception {
-		converter = new UnitOfMeasuretoUnitOfMeasureCommand();
+		converter = new UnitOfMeasureToUnitOfMeasureCommand();
 	}
 
 	@Test
@@ -33,13 +33,13 @@ public class UnitOfMeasuretoUnitOfMeasureCommandTest {
 	@Test
 	public void convert() {
 		UnitOfMeasure uom = new UnitOfMeasure();
-		uom.setId(id);
-		uom.setDescription(description);
+		uom.setId(ID);
+		uom.setDescription(DESCRIPTION);
 
 		UnitOfMeasureCommand uomC = converter.convert(uom);
 
 		assertNotNull(uom);
-		assertEquals(id, uomC.getId());
-		assertEquals(description, uomC.getDescription());
+		assertEquals(ID, uomC.getId());
+		assertEquals(DESCRIPTION, uomC.getDescription());
 	}
 }
