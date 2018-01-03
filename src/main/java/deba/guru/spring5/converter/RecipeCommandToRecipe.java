@@ -2,6 +2,7 @@ package deba.guru.spring5.converter;
 
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
+import org.springframework.stereotype.Component;
 
 import deba.guru.spring5.command.CategoryCommand;
 import deba.guru.spring5.command.IngredientCommand;
@@ -9,6 +10,7 @@ import deba.guru.spring5.command.RecipeCommand;
 import deba.guru.spring5.domain.Recipe;
 import lombok.Synchronized;
 
+@Component
 public class RecipeCommandToRecipe implements Converter<RecipeCommand, Recipe> {
 
 	private NotesCommandToNotes notesCommandToNotes;
