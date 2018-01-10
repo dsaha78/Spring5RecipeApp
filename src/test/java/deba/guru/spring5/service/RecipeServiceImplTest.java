@@ -28,13 +28,13 @@ public class RecipeServiceImplTest {
 
 	@Mock
 	RecipeRepository recipeRepository;
-	
+
 	@Mock
 	RecipeCommandToRecipe recipeCommandToRecipe;
-	
+
 	@Mock
 	RecipeToRecipeCommand recipeToRecipeCommand;
-	
+
 	@Before
 	public void setup() {
 
@@ -43,32 +43,38 @@ public class RecipeServiceImplTest {
 	}
 
 	@Test
-	public void getRecipe() {
-		
+	public void testGetRecipe() {
+
 		Set<Recipe> recipeData = new HashSet<Recipe>();
 		Recipe recipe = new Recipe();
 		recipeData.add(recipe);
-		
+
 		when(recipeServiceImpl.getRecipes()).thenReturn(recipeData);
-		
+
 		Set<Recipe> recipes = recipeServiceImpl.getRecipes();
 		assertEquals(1, recipes.size());
 		verify(recipeRepository, times(1)).findAll();
 	}
-	
-	
+
 	@Test
-	public void getRecipebyIdTest() {
+	public void testGetRecipebyId() {
 		Recipe recipe = new Recipe();
 		recipe.setId(1L);
-		
+
 		Optional<Recipe> recipeOptional = Optional.of(recipe);
-		
+
 		when(recipeRepository.findById(anyLong())).thenReturn(recipeOptional);
-		Optional<Recipe> returnRecipe =  recipeRepository.findById(1L);
-		
+		Optional<Recipe> returnRecipe = recipeRepository.findById(1L);
+
 		assertNotNull("Recipe is NULL !!!!", returnRecipe.get());
 		verify(recipeRepository, times(1)).findById(anyLong());
 		verify(recipeRepository, never()).findAll();
+	}
+
+	@Test
+	public void testDeletebyId() {
+		Long idtoDelete = new Long(1);
+		recipeServiceImpl.deletebyId(idtoDelete);
+		verify(recipeRepository, times(1)).deleteById(anyLong());
 	}
 }
