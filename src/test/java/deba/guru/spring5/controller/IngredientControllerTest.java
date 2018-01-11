@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import deba.guru.spring5.service.IngredientService;
 import deba.guru.spring5.service.RecipeService;
+import deba.guru.spring5.service.UnitoMeasureService;
 
 public class IngredientControllerTest {
 
@@ -24,6 +25,8 @@ public class IngredientControllerTest {
 	RecipeService recipeService;
 	@Mock
 	IngredientService ingredientService;
+	@Mock
+	UnitoMeasureService uomService;
 
 	MockMvc mockMvc;
 
@@ -32,7 +35,7 @@ public class IngredientControllerTest {
 	@Before
 	public void setUp() throws Exception {
 		MockitoAnnotations.initMocks(this);
-		controller = new IngredientController(recipeService, ingredientService);
+		controller = new IngredientController(recipeService, ingredientService, uomService);
 		mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
 
 	}
