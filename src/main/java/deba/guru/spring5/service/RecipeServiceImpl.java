@@ -51,6 +51,14 @@ public class RecipeServiceImpl implements RecipeService {
 		}
 		return recipeOptional.get();
 	}
+	
+	@Transactional
+	@Override
+	public Recipe saveRecipe(Recipe recipe) {
+		
+		return recipeRepository.save(recipe);
+	}
+	
 
 	@Transactional
 	@Override
